@@ -12,7 +12,8 @@ CREATE TABLE users (
     name VARCHAR(40) NOT NULL,
     vip BOOL NOT NULL,
     location VARCHAR(40),
-    review_count INT NOT NULL
+    review_count INT NOT NULL,
+    PRIMARY KEY(user_id)
 );
 
 CREATE TABLE reviews (
@@ -28,5 +29,6 @@ CREATE TABLE reviews (
     noise ENUM('quiet', 'moderate', 'loud') NOT NULL,
     would_recommend BOOL NOT NULL,
     good_for_groups BOOL NOT NULL,
-    description TEXT NOT NULL
+    description TEXT NOT NULL,
+    PRIMARY KEY(review_id)
 );
