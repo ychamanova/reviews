@@ -4,6 +4,8 @@ const db = require('../database/index.js');
 const server = express();
 const PORT = 3000;
 
+server.use(express.static(__dirname + '/../public'));
+
 server.get('/reviews/:page_id', (req, res) => {
     db.getAllReviewsForPage(req.params.page_id, (err, results) => {
         if (err) {
