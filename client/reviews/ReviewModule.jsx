@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class ReviewModule extends Component {
     constructor(props) {

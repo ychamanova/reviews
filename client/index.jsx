@@ -1,5 +1,5 @@
-import { Component } from 'react';
-import reactDOM from 'react-dom';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import ReviewModule from './reviews/ReviewModule.jsx';
 
 class App extends Component {
@@ -14,4 +14,4 @@ class App extends Component {
     }
 }
 
-reactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
