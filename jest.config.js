@@ -1,4 +1,4 @@
 module.exports = {
-    verbose: true,
-    setupFilesAfterEnv: ['./spec/setupTests.js']
+  verbose: true,
+  setupFilesAfterEnv: ['./spec/setupTests.js'],
 };
