@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import ReviewModule from './reviews/ReviewModule.jsx';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-    }
+const App = (props) => {
+  const { pageId } = props;
+  return (
+    <ReviewModule pageId={pageId} />
+  );
+};
 
-    render() {
-        return (
-            <ReviewModule/>
-        );
-    }
-}
+App.propTypes = {
+  pageId: PropTypes.number.isRequired,
+};
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App pageId={1} />, document.getElementById('app'));
