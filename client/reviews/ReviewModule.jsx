@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import OverviewHeader from './OverviewHeader.jsx';
+
 // class ReviewModule extends Component {
 //   constructor(props) {
 //     super(props);
@@ -14,16 +16,16 @@ import PropTypes from 'prop-types';
 // }
 
 const ReviewModule = (props) => {
-  const { pageId } = props;
+  const { reviews } = props;
   return (
     <h1>
-      Page Id: {pageId}
+      <OverviewHeader reviews={reviews} />
     </h1>
   );
 };
 
 ReviewModule.propTypes = {
-  pageId: PropTypes.number.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ReviewModule;
