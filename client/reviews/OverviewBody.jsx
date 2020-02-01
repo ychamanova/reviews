@@ -7,13 +7,13 @@ const OverviewBody = (props) => {
   const { reviews } = props;
   const reviewsAggregate = reviews.reduce((acc, review) => {
     acc.overallCount[review.overall] += 1;
-    acc.overallAverage += review.overall;
-    acc.foodAverage += review.food;
-    acc.serviceAverage += review.service;
-    acc.ambianceAverage += review.ambiance;
-    acc.valueAverage += review.value;
+    acc.overallSum += review.overall;
+    acc.foodSum += review.food;
+    acc.serviceSum += review.service;
+    acc.ambianceSum += review.ambiance;
+    acc.valueSum += review.value;
     acc.noiseCount[review.noise] += 1;
-    acc.wouldRecommendPerc += review.would_recommend;
+    acc.wouldRecommendSum += review.would_recommend;
     return acc;
   }, {
     overallCount: {
@@ -23,17 +23,17 @@ const OverviewBody = (props) => {
       2: 0,
       1: 0,
     },
-    overallAverage: 0,
-    foodAverage: 0,
-    serviceAverage: 0,
-    ambianceAverage: 0,
-    valueAverage: 0,
+    overallSum: 0,
+    foodSum: 0,
+    serviceSum: 0,
+    ambianceSum: 0,
+    valueSum: 0,
     noiseCount: {
       quiet: 0,
       moderate: 0,
       loud: 0,
     },
-    wouldRecommendPerc: 0,
+    wouldRecommendSum: 0,
   });
   function calculateAverageRating(ratingSum) {
     return parseFloat((ratingSum / reviews.length).toFixed(1));
@@ -53,13 +53,13 @@ const OverviewBody = (props) => {
   function calculateRecommendPerc(recommendSum) {
     return parseFloat((recommendSum / reviews.length * 100).toFixed(0));
   }
-  const overallAverage = calculateAverageRating(reviewsAggregate.overallAverage);
-  const foodAverage = calculateAverageRating(reviewsAggregate.foodAverage);
-  const serviceAverage = calculateAverageRating(reviewsAggregate.serviceAverage);
-  const ambianceAverage = calculateAverageRating(reviewsAggregate.ambianceAverage);
-  const valueAverage = calculateAverageRating(reviewsAggregate.valueAverage);
+  const overallAverage = calculateAverageRating(reviewsAggregate.overallSum);
+  const foodAverage = calculateAverageRating(reviewsAggregate.foodSum);
+  const serviceAverage = calculateAverageRating(reviewsAggregate.serviceSum);
+  const ambianceAverage = calculateAverageRating(reviewsAggregate.ambianceSum);
+  const valueAverage = calculateAverageRating(reviewsAggregate.valueSum);
   const noiseAverage = calculateAverageNoise(reviewsAggregate.noiseCount);
-  const wouldRecommendPerc = calculateRecommendPerc(reviewsAggregate.wouldRecommendPerc);
+  const wouldRecommendPerc = calculateRecommendPerc(reviewsAggregate.wouldRecommendSum);
 
   console.log(reviews);
   console.log(reviewsAggregate);
