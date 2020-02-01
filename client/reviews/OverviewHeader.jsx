@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OverviewHeader = (props) => {
-  const { reviews } = props;
-  const reviewCount = reviews.length;
+  const { reviewCount } = props;
   return (
     <div className="overviewHeader">
       {`What ${reviewCount} people are saying`}
@@ -12,7 +11,7 @@ const OverviewHeader = (props) => {
 };
 
 OverviewHeader.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  reviewCount: PropTypes.number.isRequired,
 };
 
 export default OverviewHeader;
