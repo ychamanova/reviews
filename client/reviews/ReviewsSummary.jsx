@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OverallAverage from './OverallAverage.jsx';
+import ScoresAverages from './ScoresAverages.jsx';
 
 const ReviewsSummary = (props) => {
   const { summaryData } = props;
@@ -11,6 +12,7 @@ const ReviewsSummary = (props) => {
       <div className="strong">Overall ratings and reviews</div>
       <div>Reviews can only be made by diners who have eaten at this restaraunt</div>
       <OverallAverage overallAverage={overallAverage} />
+      <ScoresAverages summaryData={summaryData} />
     </div>
   );
 };
