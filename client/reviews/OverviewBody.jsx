@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import OverallAverage from './OverallAverage.jsx';
+import ReviewsSummary from './ReviewsSummary.jsx';
 
 const OverviewBody = (props) => {
   const { reviews } = props;
@@ -53,22 +53,19 @@ const OverviewBody = (props) => {
   function calculateRecommendPerc(recommendSum) {
     return parseFloat((recommendSum / reviews.length * 100).toFixed(0));
   }
-  const overallAverage = calculateAverageRating(reviewsAggregate.overallSum);
-  const foodAverage = calculateAverageRating(reviewsAggregate.foodSum);
-  const serviceAverage = calculateAverageRating(reviewsAggregate.serviceSum);
-  const ambianceAverage = calculateAverageRating(reviewsAggregate.ambianceSum);
-  const valueAverage = calculateAverageRating(reviewsAggregate.valueSum);
-  const noiseAverage = calculateAverageNoise(reviewsAggregate.noiseCount);
-  const wouldRecommendPerc = calculateRecommendPerc(reviewsAggregate.wouldRecommendSum);
+  const summaryData = {};
+  summaryData.overallAverage = calculateAverageRating(reviewsAggregate.overallSum);
+  summaryData.foodAverage = calculateAverageRating(reviewsAggregate.foodSum);
+  summaryData.serviceAverage = calculateAverageRating(reviewsAggregate.serviceSum);
+  summaryData.ambianceAverage = calculateAverageRating(reviewsAggregate.ambianceSum);
+  summaryData.valueAverage = calculateAverageRating(reviewsAggregate.valueSum);
+  summaryData.noiseAverage = calculateAverageNoise(reviewsAggregate.noiseCount);
+  summaryData.wouldRecommendPerc = calculateRecommendPerc(reviewsAggregate.wouldRecommendSum);
 
   console.log(reviews);
   console.log(reviewsAggregate);
   return (
-    <div>
-      <div className="strong">Overall ratings and reviews</div>
-      <div>Reviews can only be made by diners who have eaten at this restaraunt</div>
-      <OverallAverage overallAverage={overallAverage} />
-    </div>
+    <ReviewsSummary summaryData={summaryData} />
   );
 };
 

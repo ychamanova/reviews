@@ -17,10 +17,12 @@ const OverallAverage = (props) => {
         {ratingsArray}
       </div>
       <div>
-        {overallAverage}
-      </div>
-      <div>
-        based on recent ratings
+        <span>
+          {overallAverage}
+        </span>
+        <span>
+          based on recent ratings
+        </span>
       </div>
     </div>
   );
