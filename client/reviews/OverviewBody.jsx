@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ReviewsSummary from './ReviewsSummary.jsx';
+import ReviewsBarChart from './ReviewsBarChart.jsx';
 
 const OverviewBody = (props) => {
   const { reviews } = props;
@@ -50,8 +51,8 @@ const OverviewBody = (props) => {
     });
     return result;
   }
-  function calculateRecommendPerc(recommendSum) {
-    return parseFloat((recommendSum / reviews.length * 100).toFixed(0));
+  function calculatePerc(sum) {
+    return parseFloat((sum / reviews.length * 100).toFixed(0));
   }
   const summaryData = {};
   summaryData.overallAverage = calculateAverageRating(reviewsAggregate.overallSum);
@@ -60,12 +61,20 @@ const OverviewBody = (props) => {
   summaryData.ambianceAverage = calculateAverageRating(reviewsAggregate.ambianceSum);
   summaryData.valueAverage = calculateAverageRating(reviewsAggregate.valueSum);
   summaryData.noiseAverage = calculateAverageNoise(reviewsAggregate.noiseCount);
-  summaryData.wouldRecommendPerc = calculateRecommendPerc(reviewsAggregate.wouldRecommendSum);
+  summaryData.wouldRecommendPerc = calculatePerc(reviewsAggregate.wouldRecommendSum);
 
-  console.log(reviews);
-  console.log(reviewsAggregate);
+  const { overallCount } = reviewsAggregate;
+  const overallRatings = {};
+  const ratingKeys = Object.keys(overallCount);
+  ratingKeys.forEach((key) => {
+    overallRatings[key] = calculatePerc(overallCount[key]);
+  });
+
   return (
-    <ReviewsSummary summaryData={summaryData} />
+    <div>
+      <ReviewsSummary summaryData={summaryData} />
+      <ReviewsBarChart overallRatings={overallRatings} />
+    </div>
   );
 };
 
