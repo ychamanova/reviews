@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 
 import OverallAverage from './OverallAverage.jsx';
 import ScoresAverages from './ScoresAverages.jsx';
+import NoiseRating from './NoiseRating.jsx';
 
 const ReviewsSummary = (props) => {
   const { summaryData } = props;
-  const { overallAverage } = summaryData;
+  const { overallAverage, noiseAverage } = summaryData;
   return (
     <div>
       <div className="strong">Overall ratings and reviews</div>
       <div>Reviews can only be made by diners who have eaten at this restaraunt</div>
       <OverallAverage overallAverage={overallAverage} />
       <ScoresAverages summaryData={summaryData} />
+      <NoiseRating noiseAverage={noiseAverage} />
     </div>
   );
 };
