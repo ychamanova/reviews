@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 import OverallAverage from './OverallAverage.jsx';
 import ScoresAverages from './ScoresAverages.jsx';
@@ -11,8 +13,8 @@ const ReviewsSummary = (props) => {
   const { overallAverage, noiseAverage, wouldRecommendPerc } = summaryData;
   return (
     <div>
-      <div className="strong">Overall ratings and reviews</div>
-      <div>Reviews can only be made by diners who have eaten at this restaraunt</div>
+      <div styleName="summaryHeader">Overall ratings and reviews</div>
+      <div styleName="summarySubtext">Reviews can only be made by diners who have eaten at this restaraunt</div>
       <OverallAverage overallAverage={overallAverage} />
       <ScoresAverages summaryData={summaryData} />
       <NoiseRating noiseAverage={noiseAverage} />
@@ -33,4 +35,4 @@ ReviewsSummary.propTypes = {
   }).isRequired,
 };
 
-export default ReviewsSummary;
+export default CSSModules(ReviewsSummary, styles, { allowMultiple: false });

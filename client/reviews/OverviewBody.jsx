@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewsBarChart from './ReviewsBarChart.jsx';
@@ -71,7 +73,7 @@ const OverviewBody = (props) => {
   });
 
   return (
-    <div>
+    <div styleName="overviewBody">
       <ReviewsSummary summaryData={summaryData} />
       <ReviewsBarChart overallRatings={overallRatings} />
     </div>
@@ -82,4 +84,4 @@ OverviewBody.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default OverviewBody;
+export default CSSModules(OverviewBody, styles, { allowMultiple: false });

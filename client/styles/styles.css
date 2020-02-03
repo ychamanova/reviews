@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.reviewsContainer {
+  width: 640px;
+  margin: 0 1rem 2rem 1rem;
+  padding-bottom: 2rem;
+  border-bottom: solid 1px #d8d9db;
+}
+
+.reviews {
+  /* padding-bottom: 4rem; */
+}
+
+.overviewHeader {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.33;
+  color: #2d333f;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d8d9db;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.overviewBody {
+  display: flex;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.summaryHeader {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  display: flex;
+}
+
+.summarySubtext {
+  font-size: 1rem;
+  font-weight: 300;
+  padding-top: 0.5rem;
+}
+
+.overallAverage {
+  font-size: 0.875rem;
+  font-weight: normal;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  position: relative;
+  line-height: 1.43;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.overallStars {
+  display: flex;
+}
+
+.star {
+  height: 16px;
+  margin: 0 4px 0 0;
+}
+
+.starChecked {
+  height: 16px;
+  margin: 0 4px 0 0;
+}
+
+.overallInline {
+  margin: 0 0.25rem 0 0.25rem;
+}
+
+.scoresAverages {
+  display: flex;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem 0 0.5rem;
+  position: relative;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.scoreContainer::after {
+  background: #d8d9db;
+  content: "";
+  display: block;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  width: 1px;
+  top: calc(50% - 1rem);
+}
+
+.scoreContainerEnd {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem 0 0.5rem;
+  position: relative;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.scoreNumber {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.33;
+}
+
+.scoreLabel {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.ratingContainer {
+  padding-top: 1rem;
+  max-width: 100%;
+}
+
+.ratingDiv {
+  display: flex;
+  align-items: center;
+}
+
+.icoContainer {
+  display: inherit;
+}
+
+.inlineIco {
+  height: 1.125rem;
+  width: 1.125rem;
+  background-position-x: 50%;
+  background-position-y: center;
+  margin-right: 0.5rem;
+}
+
+.ratingLabel {
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.43;
+  margin-left: 0.25rem;
+  color: #6f737b;
+}
+
+.ratingSubtext {
+  font-weight: 300;
+}
+
+.barChartContainer {
+  padding-top: 2rem;
+}
+
+.barChart {
+  width: 16rem;
+}
+
+.ratingBar {
+  display: flex;
+  padding-bottom: 0.5rem;
+  align-items: center;
+}
+
+.barLabel {
+  margin-right: 0.5rem;
+  width: 1rem;
+  text-align: center;
+}

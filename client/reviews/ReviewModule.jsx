@@ -1,29 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 import OverviewHeader from './OverviewHeader.jsx';
 import OverviewBody from './OverviewBody.jsx';
-
-// class ReviewModule extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return (
-//       <h1>hello warld</h1>
-//     );
-//   }
-// }
 
 const ReviewModule = (props) => {
   const { reviews } = props;
   const reviewCount = reviews.length;
   return (
-    <h1>
-      <OverviewHeader reviewCount={reviewCount} />
-      <OverviewBody reviews={reviews} />
-    </h1>
+    <div styleName="reviewsContainer">
+      <div styleName="reviews">
+        <OverviewHeader reviewCount={reviewCount} />
+        <OverviewBody reviews={reviews} />
+      </div>
+    </div>
   );
 };
 
@@ -31,4 +23,4 @@ ReviewModule.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default ReviewModule;
+export default CSSModules(ReviewModule, styles, { allowMultiple: false });
