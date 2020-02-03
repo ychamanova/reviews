@@ -8,9 +8,9 @@ const OverallAverage = (props) => {
   const ratingsArray = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < overallAverage) {
-      ratingsArray.push(<span styleName="starChecked" key={i}>S</span>);
+      ratingsArray.push(<i styleName="starChecked" key={i} className="fas fa-star" />);
     } else {
-      ratingsArray.push(<span styleName="star" key={i}>N</span>);
+      ratingsArray.push(<i styleName="starChecked" key={i} className="far fa-star" />);
     }
   }
   return (
