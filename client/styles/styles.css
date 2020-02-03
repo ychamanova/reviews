@@ -151,6 +151,10 @@ body {
   color: #6f737b;
 }
 
+.ratingLabel:hover {
+  color: #da3743
+}
+
 .ratingSubtext {
   font-weight: 300;
 }
@@ -174,3 +178,4 @@ body {
   width: 1rem;
   text-align: center;
 }
+
