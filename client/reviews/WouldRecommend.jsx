@@ -9,7 +9,7 @@ const WouldRecommend = (props) => {
     <div styleName="ratingContainer">
       <div styleName="ratingDiv">
         <div styleName="icoContainer">
-          <i styleName="inlineIco" />
+          <i styleName="inlineIco" className="far fa-thumbs-up" />
         </div>
         <div styleName="ratingLabel">
           {`${wouldRecommendPerc}% of people `}

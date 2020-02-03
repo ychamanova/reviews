@@ -10,7 +10,7 @@ const NoiseRating = (props) => {
     <div styleName="ratingContainer">
       <div styleName="ratingDiv">
         <div styleName="icoContainer">
-          <i styleName="inlineIco" />
+          <i styleName="inlineIco" className="fas fa-signal" />
         </div>
         <div styleName="ratingLabel">
           {'Noise · '}
