@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 const NoiseRating = (props) => {
   let { noiseAverage } = props;
   noiseAverage = noiseAverage[0].toUpperCase() + noiseAverage.slice(1);
   return (
-    <div>
-      <div>
-        <img src="https://cdn4.iconfinder.com/data/icons/mobile-phone-1/128/Phone_Signal_Highest-512.png" alt="" />
-      </div>
-      <div>
-        Noise · 
-        <span>
-          {noiseAverage}
-        </span>
+    <div styleName="ratingContainer">
+      <div styleName="ratingDiv">
+        <div styleName="icoContainer">
+          <i styleName="inlineIco" />
+        </div>
+        <div styleName="ratingLabel">
+          {'Noise · '}
+          <span styleName="ratingSubtext">
+            {noiseAverage}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -23,4 +27,4 @@ NoiseRating.propTypes = {
   noiseAverage: PropTypes.string.isRequired,
 };
 
-export default NoiseRating;
+export default CSSModules(NoiseRating, styles, { allowMultiple: false });

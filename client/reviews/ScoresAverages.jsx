@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 const ScoresAverages = (props) => {
   const { summaryData } = props;
@@ -10,36 +12,36 @@ const ScoresAverages = (props) => {
     valueAverage,
   } = summaryData;
   return (
-    <div>
-      <div>
-        <div>
+    <div styleName="scoresAverages">
+      <div styleName="scoreContainer">
+        <div styleName="scoreNumber">
           {foodAverage}
         </div>
-        <div>
+        <div styleName="scoreLabel">
           Food
         </div>
       </div>
-      <div>
-        <div>
+      <div styleName="scoreContainer">
+        <div styleName="scoreNumber">
           {serviceAverage}
         </div>
-        <div>
+        <div styleName="scoreLabel">
           Service
         </div>
       </div>
-      <div>
-        <div>
+      <div styleName="scoreContainer">
+        <div styleName="scoreNumber">
           {ambianceAverage}
         </div>
-        <div>
+        <div styleName="scoreLabel">
           Ambiance
         </div>
       </div>
-      <div>
-        <div>
+      <div styleName="scoreContainerEnd">
+        <div styleName="scoreNumber">
           {valueAverage}
         </div>
-        <div>
+        <div styleName="scoreLabel">
           Value
         </div>
       </div>
@@ -59,4 +61,4 @@ ScoresAverages.propTypes = {
   }).isRequired,
 };
 
-export default ScoresAverages;
+export default CSSModules(ScoresAverages, styles, { allowMultiple: false });

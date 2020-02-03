@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
+import styles from '../styles/styles.css';
 
 import RatingBar from './RatingBar.jsx';
 
@@ -26,12 +28,14 @@ const ReviewsBarChart = (props) => {
     perc: overallRatings['1'],
   };
   return (
-    <div>
-      <RatingBar ratings={fiveStar} key={5} />
-      <RatingBar ratings={fourStar} key={4} />
-      <RatingBar ratings={threeStar} key={3} />
-      <RatingBar ratings={twoStar} key={2} />
-      <RatingBar ratings={oneStar} key={1} />
+    <div styleName="barChartContainer">
+      <div styleName="barChart">
+        <RatingBar ratings={fiveStar} key={5} />
+        <RatingBar ratings={fourStar} key={4} />
+        <RatingBar ratings={threeStar} key={3} />
+        <RatingBar ratings={twoStar} key={2} />
+        <RatingBar ratings={oneStar} key={1} />
+      </div>
     </div>
   );
 };
@@ -40,4 +44,4 @@ ReviewsBarChart.propTypes = {
   overallRatings: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
-export default ReviewsBarChart;
+export default CSSModules(ReviewsBarChart, styles, { allowMultiple: false });
