@@ -1,26 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import CSSModules from 'react-css-modules';
 import styles from '../styles/styles.css';
 
 import OverviewHeader from './OverviewHeader.jsx';
 import OverviewBody from './OverviewBody.jsx';
 
-const ReviewModule = (props) => {
-  const { reviews } = props;
-  const reviewCount = reviews.length;
-  return (
-    <div styleName="reviewsContainer">
-      <div styleName="reviews">
-        <OverviewHeader reviewCount={reviewCount} />
-        <OverviewBody reviews={reviews} />
-      </div>
-    </div>
-  );
-};
+const serverurl = 'http://localhost:3000';
+
+class ReviewModule extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reviews: [],
+    };
+  }
+
+  componentDidMount() {
+    const { pageId } = this.props;
+    axios.get(`${serverurl}/reviews/${pageId}`)
+      .then((res) => {
+        const reviews = res.data;
+        this.setState({ reviews });
+      })
+      .catch((err) => {
+        console.log('error occurred when getting db results from within ReviewModule', err);
+      });
+  }
+
+  render() {
+    const { reviews } = this.state;
+    const reviewCount = reviews.length;
+    return (
+      !reviewCount ? <div>Loading...</div> : (
+        <div styleName="reviewsContainer">
+          <div styleName="reviews">
+            <OverviewHeader reviewCount={reviewCount} />
+            <OverviewBody reviews={reviews} />
+          </div>
+        </div>
+      )
+    );
+  }
+}
 
 ReviewModule.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageId: PropTypes.number.isRequired,
 };
 
 export default CSSModules(ReviewModule, styles, { allowMultiple: false });
