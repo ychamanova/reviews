@@ -28,7 +28,7 @@ const reviews = [
 ];
 
 const fullReviews = [];
-for (let i = 0; i < REVIEW_COUNT; i + 1) {
+for (let i = 0; i < REVIEW_COUNT; i += 1) {
   const review = reviews[i % reviews.length].slice();
   // compute which user authored the review
   review[2] = ((i % users.length) + 1).toString();
