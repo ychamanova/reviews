@@ -7,7 +7,8 @@
     "react-dev": "webpack -d --watch",
     "server": "nodemon ./server/index.js",
     "test": "jest",
-    "seed": "node ./database/seeder.js"
+    "setup-db": "mysql -u root -p < database/schema.sql",
+    "seed-db": "node ./database/seeder.js"
   },
   "repository": {
     "type": "git",
