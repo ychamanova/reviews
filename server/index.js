@@ -5,9 +5,9 @@ const path = require('path');
 const db = require('../database/index.js');
 
 const server = express();
-const PORT = 3000;
+const PORT = 3003;
 const corsOptions = {
-  origin: 'http://localhost:3001',
+  origin: 'http://localhost:3000',
 };
 
 server.use(morgan(':url'));

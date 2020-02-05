@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import ReviewModule from './reviews/ReviewModule.jsx';
 
-const serverurl = 'http://localhost:3000';
+const serverurl = 'http://localhost:3003';
 const pageId = 1;
 
 ReactDOM.render(<ReviewModule pageId={pageId} />, document.getElementById('app'));
