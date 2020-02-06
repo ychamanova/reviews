@@ -3,9 +3,13 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const db = require('../database/index.js');
+const { PORT } = require('../app.config.js');
 
 const server = express();
+<<<<<<< HEAD
 const PORT = 3003;
+=======
+>>>>>>> 9765cd0eec0af8c12306e279a42becccbbd31791
 const corsOptions = {
   origin: 'http://localhost:3000',
 };

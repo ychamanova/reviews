@@ -8,7 +8,13 @@ import styles from '../styles/styles.css';
 import OverviewHeader from './OverviewHeader.jsx';
 import OverviewBody from './OverviewBody.jsx';
 
+<<<<<<< HEAD
 const serverurl = 'http://localhost:3003';
+=======
+import { PORT } from '../../app.config.js';
+
+const serverurl = `http://localhost:${PORT}`;
+>>>>>>> 9765cd0eec0af8c12306e279a42becccbbd31791
 
 class ReviewModule extends Component {
   constructor(props) {
